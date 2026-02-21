@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Stripper</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Recipe Stripper</h1>
+      <p class="subtitle">Paste a recipe URL. Get ingredients and directions. Nothing else.</p>
+    </header>
+
+    <form id="recipe-form">
+      <div class="input-row">
+        <input
+          type="url"
+          id="url-input"
+          placeholder="https://www.allrecipes.com/recipe/..."
+          required
+          autocomplete="off"
+        >
+        <button type="submit" id="submit-btn">Get Recipe</button>
+      </div>
+    </form>
+
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <span>Fetching recipe&hellip;</span>
+    </div>
+
+    <div id="error" class="error hidden"></div>
+
+    <div id="result" class="result hidden">
+      <div class="recipe-header">
+        <img id="recipe-image" class="recipe-image hidden" alt="">
+        <div>
+          <h2 id="recipe-title"></h2>
+          <div id="recipe-meta" class="recipe-meta"></div>
+        </div>
+      </div>
+
+      <div class="recipe-body">
+        <section class="recipe-section">
+          <h3>Ingredients</h3>
+          <ul id="ingredients-list"></ul>
+        </section>
+
+        <section class="recipe-section">
+          <h3>Directions</h3>
+          <ol id="instructions-list"></ol>
+        </section>
+      </div>
+
+      <p class="source">Source: <a id="source-link" target="_blank" rel="noopener noreferrer"></a></p>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
